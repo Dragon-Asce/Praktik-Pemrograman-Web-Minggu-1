@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Penjualan Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .container {
+            background-color: #f7e017;
+            border: 1px solid #000;
+            width: 550px;
+            padding-bottom: 30px;
+        }
+        .header {
+            background-color: #0000ff;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px 0;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 12px;
+            padding: 0 30px;
+            align-items: center;
+        }
+        .form-group label {
+            width: 160px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .form-group input, .form-group select {
+            padding: 5px;
+            border: 1px solid #999;
+        }
+        .form-group input[readonly] {
+            background-color: #e9ecef;
+            outline: none;
+        }
+        .btn {
+            padding: 4px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #e0e0e0;
+            border: 1px solid #777;
+            border-radius: 3px;
+        }
+        .btn:hover { background-color: #d0d0d0; }
+        .btn-cetak {
+            margin-left: 190px;
+            margin-top: 10px;
+            padding: 6px 25px;
+        }
+        
+        @media print {
+            body { margin: 0; }
+            .btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">FORM PENJUALAN BARANG</div>
+        
+        <div class="form-group">
+            <label>Kode Barang</label>
+            <input type="text" id="kode" style="width: 120px;">
+            <button class="btn" onclick="cariBarang()">Cari</button>
+        </div>
+        <div class="form-group">
+            <label>Nama Barang</label>
+            <input type="text" id="nama" style="width: 250px;" readonly>
+        </div>
+        <div class="form-group">
+            <label>Harga Barang</label>
+            <input type="text" id="harga" style="width: 150px;" readonly>
+        </div>
+        <div class="form-group">
+            <label>Jumlah Barang</label>
+            <input type="number" id="jumlah" style="width: 80px;" min="1">
+        </div>
+        <div class="form-group">
+            <label>Metode Bayar</label>
+            <select id="metode" style="width: 100px;">
+                <option value="Cash">Cash</option>
+                <option value="Kredit">Kredit</option>
+            </select>
+            <button class="btn" onclick="prosesHitung()">Proses</button>
+        </div>
+        <div class="form-group">
+            <label>Total Harga</label>
+            <input type="text" id="total_harga" style="width: 250px;" readonly>
+        </div>
+        <div class="form-group">
+            <label>Diskon</label>
+            <input type="text" id="diskon" style="width: 250px;" readonly>
+        </div>
+        <div class="form-group">
+            <label>Total Bayar</label>
+            <input type="text" id="total_bayar" style="width: 250px;" readonly>
+        </div>
+        
+        <button class="btn btn-cetak" onclick="cetakForm()">Cetak</button>
+    </div>
+
+    <script>
+        const dbBarang = {
+            "A001": { nama: "Mouse", harga: 5000000 },
+            "A002": { nama: "Headphone", harga: 750000 },
+            "A003": { nama: "CPU", harga: 2300000 }
+        };
+
+        function cariBarang() {
+            let kode = document.getElementById('kode').value.trim().toUpperCase();
+            
+            if (dbBarang[kode]) {
+                document.getElementById('nama').value = dbBarang[kode].nama;
+                document.getElementById('harga').value = dbBarang[kode].harga;
+            } else {
+                alert("Kode Barang tidak ditemukan!");
+                document.getElementById('nama').value = "";
+                document.getElementById('harga').value = "";
+            }
+        }
+
+        function prosesHitung() {
+            let hargaStr = document.getElementById('harga').value;
+            let jumlahStr = document.getElementById('jumlah').value;
+            let metode = document.getElementById('metode').value;
+
+            if (!hargaStr || !jumlahStr) {
+                alert("Pastikan barang sudah dicari dan jumlah barang terisi!");
+                return;
+            }
+
+            let harga = parseFloat(hargaStr);
+            let jumlah = parseInt(jumlahStr);
+            
+            let totalHarga = harga * jumlah;
+            
+            let diskon = 0;
+            if (metode === "Cash" || jumlah > 5) {
+                diskon = 0.12 * harga; 
+            } else if (metode === "Kredit" && jumlah > 20) {
+                diskon = 0.05 * totalHarga;
+            } else {
+                diskon = 0;
+            }
+
+            let totalBayar = totalHarga - diskon;
+
+            // Update UI
+            document.getElementById('total_harga').value = Math.round(totalHarga);
+            document.getElementById('diskon').value = Math.round(diskon);
+            document.getElementById('total_bayar').value = Math.round(totalBayar);
+        }
+
+        function cetakForm() {
+            window.print();
+        }
+    </script>
+</body>
+</html>

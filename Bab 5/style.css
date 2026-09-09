@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: darkgray; 
+    font-family: 'Arial Narrow', Arial, sans-serif; 
+    font-size: 10pt; 
+    font-weight: bold; 
+    line-height: 1; 
+    
+    display: grid;
+    grid-template-rows: 120px auto 60px;
+    grid-template-columns: 250px auto 200px;
+    height: 100vh;
+}
+
+.header, .footer {
+    grid-column: 1 / span 3;
+    background-color: #0461af;
+    color: white;
+    padding: 15px 20px;
+}
+
+.kiri, .kanan {
+    background-color: darkgray;
+    padding: 15px;
+}
+
+.tengah {
+    background-color: ghostwhite;
+}
+
+.judul {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 36pt;
+    color: white;
+    margin: 0 0 5px 0;
+}
+
+.sub-judul {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16pt;
+    color: white;
+    margin: 0;
+}
+
+table.menu-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+}
+
+.menu-table th {
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    font-size: 14pt;
+    border: 1px solid darkblue;
+}
+
+.menu-table td {
+    background-color: yellow;
+    text-align: center;
+    
+    border-top: 3px solid #ffffcc;
+    border-left: 3px solid #ffffcc;
+    border-bottom: 3px solid #b3b300;
+    border-right: 3px solid #b3b300;  
+}
+
+.menu-table td:active {
+    border-top: 3px solid #b3b300;
+    border-left: 3px solid #b3b300;
+    border-bottom: 3px solid #ffffcc;
+    border-right: 3px solid #ffffcc;
+}
+
+.menu-table a {
+    display: block;
+    padding: 8px;
+    text-decoration: underline;
+    color: blue;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.kanan-konten {
+    text-align: center;
+}
+
+.kanan-konten a {
+    display: block;
+    color: blue;
+    text-decoration: underline;
+    margin-bottom: 5px;
+}

@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.form-container {
+    width: 600px;
+    border: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.header {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.body-form {
+    background-color: #ffeb3b;
+    padding: 30px;
+}
+
+table {
+    width: 100%;
+    border-spacing: 0 10px;
+}
+
+td {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+td:first-child {
+    width: 30%;
+}
+
+input[type="text"] {
+    padding: 4px;
+    border: 1px solid #ccc;
+}
+
+.input-panjang {
+    width: 80%;
+}
+
+.radio-group {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+select {
+    padding: 4px;
+}
+
+button {
+    padding: 4px 15px;
+    font-weight: bold;
+    background-color: #e0e0e0;
+    border: 1px solid #999;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.hasil-container {
+    width: 600px;
+    padding: 20px;
+    border: 1px dashed black;
+    background-color: #f9f9f9;
+}

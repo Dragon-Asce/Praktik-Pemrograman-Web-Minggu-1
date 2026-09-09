@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Form Pemesanan Barang</h1>
+    </div>
+    
+    <div class="form-content">
+        <div class="form-row">
+            <label>Kode Barang</label>
+            <input type="text" id="kodeBarang">
+            <button onclick="cariBarang()">Tebak</button>
+        </div>
+        <div class="form-row">
+            <label>Nama Barang</label>
+            <input type="text" id="namaBarang" readonly>
+        </div>
+        <div class="form-row">
+            <label>Harga Barang</label>
+            <input type="number" id="hargaBarang" readonly>
+        </div>
+        <div class="form-row">
+            <label>Jumlah Barang</label>
+            <input type="number" id="jumlahBarang">
+            <button onclick="hitung()">Hitung</button>
+        </div>
+        <div class="form-row">
+            <label>Total Harga</label>
+            <input type="number" id="totalHarga" readonly>
+        </div>
+        <div class="form-row">
+            <label>Diskon</label>
+            <input type="number" id="diskon" readonly>
+        </div>
+        <div class="form-row">
+            <label>Total Bayar</label>
+            <input type="number" id="totalBayar" readonly>
+        </div>
+        
+        <div class="action-row">
+            <button onclick="cetak()">Cetak</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

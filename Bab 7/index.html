@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Penjualan Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="header">
+            <h1>FORM PENJUALAN BARANG</h1>
+        </div>
+        <div class="body-form">
+            <form id="formPenjualan" onsubmit="prosesData(event)">
+                <table>
+                    <tr>
+                        <td>Kode Barang</td>
+                        <td><input type="text" id="kodeBarang" required></td>
+                    </tr>
+                    <tr>
+                        <td>Nama Barang</td>
+                        <td><input type="text" id="namaBarang" class="input-panjang" required></td>
+                    </tr>
+                    <tr>
+                        <td>Harga Barang</td>
+                        <td><input type="text" id="hargaBarang" required></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Barang</td>
+                        <td class="radio-group">
+                            <input type="radio" name="jumlahBarang" value="10" required> 10
+                            <input type="radio" name="jumlahBarang" value="20"> 20
+                            <input type="radio" name="jumlahBarang" value="30"> 30
+                            <input type="radio" name="jumlahBarang" value="40"> 40
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Metode Bayar</td>
+                        <td>
+                            <select id="metodeBayar" required>
+                                <option value="Cash">Cash</option>
+                                <option value="Kredit">Kredit</option>
+                            </select>
+                            <button type="submit">Proses</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <div id="areaHasil" class="hasil-container">
+        <h3>Hasil Input:</h3>
+        <p><strong>Kode Barang:</strong> <span id="resKode"></span></p>
+        <p><strong>Nama Barang:</strong> <span id="resNama"></span></p>
+        <p><strong>Harga Barang:</strong> <span id="resHarga"></span></p>
+        <p><strong>Jumlah Barang:</strong> <span id="resJumlah"></span></p>
+        <p><strong>Metode Bayar:</strong> <span id="resMetode"></span></p>
+    </div>
+
+    <!-- Memanggil file JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
